@@ -5,7 +5,7 @@ import DescriptionSection from "./DescriptionSection";
 export default function MainSection(props) {
   return (
     <Main>
-      <ImageSection />
+      <ImageSection setIsMainPicClicked={props.setIsMainPicClicked} />
       <DescriptionSection
         cartNumber={props.cartNumber}
         setCartNumber={props.setCartNumber}

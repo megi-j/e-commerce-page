@@ -9,7 +9,7 @@ import productBigImg3 from "../images/image-product-3.jpg";
 import productBigImg4 from "../images/image-product-4.jpg";
 import { useState } from "react";
 
-export default function ImageSection() {
+export default function ImageSection(props) {
   const [mainProduct, setMainProduct] = useState(productBigImg1);
 
   let productSmallImages = [
@@ -20,7 +20,11 @@ export default function ImageSection() {
   ];
   return (
     <ImgSection>
-      <Product src={mainProduct} alt="" />
+      <Product
+        onClick={() => props.setIsMainPicClicked(true)}
+        src={mainProduct}
+        alt=""
+      />
       <ProductImagesBox>
         {productSmallImages.map((item) => {
           return (
@@ -49,6 +53,7 @@ const Product = styled.img`
   width: 100%;
   height: 445px;
   border-radius: 15px;
+  cursor: pointer;
 `;
 const ProductImagesBox = styled.div`
   width: 100%;
