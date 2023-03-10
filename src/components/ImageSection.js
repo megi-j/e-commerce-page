@@ -11,6 +11,7 @@ import { useState } from "react";
 
 export default function ImageSection() {
   const [mainProduct, setMainProduct] = useState(productBigImg1);
+
   let productSmallImages = [
     [productSmallImg1, productBigImg1],
     [productSmallImg2, productBigImg2],
@@ -23,7 +24,11 @@ export default function ImageSection() {
       <ProductImagesBox>
         {productSmallImages.map((item) => {
           return (
-            <ProductImageBox onClick={() => setMainProduct(item[1])}>
+            <ProductImageBox
+              onClick={() => {
+                setMainProduct(item[1]);
+              }}
+            >
               <ProductSmallImg src={item[0]} />
               <ProductImageBoxHidden />
             </ProductImageBox>

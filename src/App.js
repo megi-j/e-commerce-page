@@ -1,6 +1,8 @@
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
 import MainSection from "./components/MainSection";
+import { useState } from "react";
+
 const GlobalStyles = createGlobalStyle`
   *{
       margin: 0;
@@ -11,11 +13,26 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 function App() {
+  const [cartNumber, setCartNumber] = useState(0);
+  const [productTitle, setProductTitle] = useState(
+    "Fall Limited Edition Sneakers"
+  );
+  const [productPrice, setProductPrice] = useState("125.00");
   return (
     <Container>
       <GlobalStyles />
-      <Header />
-      <MainSection />
+      <Header
+        cartNumber={cartNumber}
+        productTitle={productTitle}
+        productPrice={productPrice}
+        setCartNumber={setCartNumber}
+      />
+      <MainSection
+        cartNumber={cartNumber}
+        setCartNumber={setCartNumber}
+        productTitle={productTitle}
+        productPrice={productPrice}
+      />
     </Container>
   );
 }

@@ -2,11 +2,16 @@ import styled from "styled-components";
 import ImageSection from "./ImageSection";
 import DescriptionSection from "./DescriptionSection";
 
-export default function MainSection() {
+export default function MainSection(props) {
   return (
     <Main>
       <ImageSection />
-      <DescriptionSection />
+      <DescriptionSection
+        cartNumber={props.cartNumber}
+        setCartNumber={props.setCartNumber}
+        productTitle={props.productTitle}
+        productPrice={props.productPrice}
+      />
     </Main>
   );
 }

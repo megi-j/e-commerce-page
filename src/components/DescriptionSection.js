@@ -1,19 +1,35 @@
+import { useState } from "react";
 import styled from "styled-components";
 import minus from "../images/icon-minus.svg";
 import plus from "../images/icon-plus.svg";
 
-export default function DescriptionSection() {
+export default function DescriptionSection(props) {
+  const [quantity, setQuantity] = useState(0);
+
+  function minusQuantity() {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    } else {
+      setQuantity(0);
+    }
+  }
+  function plusQuantity() {
+    setQuantity(quantity + 1);
+  }
+  function addToCart() {
+    props.setCartNumber(quantity);
+  }
   return (
     <DescriptionBox>
       <CompanyName>Sneaker Company</CompanyName>
-      <ProductTitle>Fall Limited Edition Sneakers</ProductTitle>
+      <ProductTitle>{props.productTitle}</ProductTitle>
       <ProductDescription>
         These low-profile sneakers are your perfect casual wear companion.
         Featuring a durable rubber outer sole, they’ll withstand everything the
         weather can offer.
       </ProductDescription>
       <div style={{ display: "flex" }}>
-        <NewPrice>$125.00</NewPrice>
+        <NewPrice>${props.productPrice}</NewPrice>
         <DiscountPercent>50%</DiscountPercent>
       </div>
       <OldPrice>$250.00</OldPrice>
@@ -24,9 +40,9 @@ export default function DescriptionSection() {
         }}
       >
         <QuantityBox>
-          <img src={minus} alt="" />
-          <Quantity>0</Quantity>
-          <img src={plus} alt="" />
+          <Minus onClick={minusQuantity} src={minus} alt="" />
+          <Quantity>{quantity}</Quantity>
+          <Plus onClick={plusQuantity} src={plus} alt="" />
         </QuantityBox>
         <CartBox>
           <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +52,7 @@ export default function DescriptionSection() {
               fill-rule="nonzero"
             />
           </svg>
-          <p>Add to cart</p>
+          <p onClick={addToCart}>Add to cart</p>
         </CartBox>
       </div>
     </DescriptionBox>
@@ -84,6 +100,7 @@ const DiscountPercent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 15px;
 `;
 const OldPrice = styled.p`
   font-weight: 700;
@@ -122,4 +139,10 @@ const Quantity = styled.p`
   font-weight: 700;
   font-size: 16px;
   color: #1d2026;
+`;
+const Minus = styled.img`
+  cursor: pointer;
+`;
+const Plus = styled.img`
+  cursor: pointer;
 `;
