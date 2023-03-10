@@ -17,10 +17,15 @@ export default function DescriptionSection() {
         <DiscountPercent>50%</DiscountPercent>
       </div>
       <OldPrice>$250.00</OldPrice>
-      <div style={{ display: "flex" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
         <QuantityBox>
           <img src={minus} alt="" />
-          <p>0</p>
+          <Quantity>0</Quantity>
           <img src={plus} alt="" />
         </QuantityBox>
         <CartBox>
@@ -104,7 +109,17 @@ const CartBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px;
   font-weight: 700;
   font-size: 16px;
   color: #ffffff;
+  cursor: pointer;
+  &:hover {
+    background: #ffab6a;
+  }
+`;
+const Quantity = styled.p`
+  font-weight: 700;
+  font-size: 16px;
+  color: #1d2026;
 `;
