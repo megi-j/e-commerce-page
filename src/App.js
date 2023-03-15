@@ -4,7 +4,7 @@ import MainSection from "./components/MainSection";
 import { useState } from "react";
 import close from "./images/icon-close.svg";
 import ImageSection from "./components/ImageSection";
-
+import "./App.css";
 const GlobalStyles = createGlobalStyle`
   *{
       margin: 0;
@@ -21,6 +21,7 @@ function App() {
   );
   const [productPrice, setProductPrice] = useState("125.00");
   const [isMainPicClicked, setIsMainPicClicked] = useState(false);
+  // const [selectedPicture, setSelectedPicture] = useState()
   return (
     <Container>
       <GlobalStyles />
