@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.001c5ab6.css","mappings":"AAAA,QAEE,wEAIG,CALH,wBAMF","sources":["App.css"],"sourcesContent":["#active {\r\n  border: 2px solid #FF7E1B;\r\n  background: linear-gradient(\r\n      0deg,\r\n      rgba(255, 255, 255, 0.75),\r\n      rgba(255, 255, 255, 0.75)\r\n    );\r\n}"],"names":[],"sourceRoot":""}
