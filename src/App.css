@@ -1,3 +1,8 @@
 #active {
   border: 2px solid #FF7E1B;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    );
 }

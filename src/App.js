@@ -2,9 +2,9 @@ import styled, { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
 import MainSection from "./components/MainSection";
 import { useState } from "react";
-import close from "./images/icon-close.svg";
 import ImageSection from "./components/ImageSection";
 import "./App.css";
+
 const GlobalStyles = createGlobalStyle`
   *{
       margin: 0;
@@ -21,7 +21,7 @@ function App() {
   );
   const [productPrice, setProductPrice] = useState("125.00");
   const [isMainPicClicked, setIsMainPicClicked] = useState(false);
-  // const [selectedPicture, setSelectedPicture] = useState()
+
   return (
     <Container>
       <GlobalStyles />
@@ -40,16 +40,21 @@ function App() {
       />
       {isMainPicClicked && (
         <HiddenSection>
-          <PrevButton></PrevButton>
           <SliderSection>
-            <CloseImg
+            <svg
+              width="14"
+              height="15"
+              xmlns="http://www.w3.org/2000/svg"
               onClick={() => setIsMainPicClicked(false)}
-              src={close}
-              alt=""
-            />
-            <ImageSection />
+            >
+              <path
+                d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+                fill="#FFF"
+                fillRule="evenodd"
+              />
+            </svg>
+            <ImageSection isMainPicClicked={isMainPicClicked} />
           </SliderSection>
-          <NextButton></NextButton>
         </HiddenSection>
       )}
     </Container>
@@ -81,26 +86,6 @@ const SliderSection = styled.section`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-end;
-  border: 1px solid red;
-`;
-const CloseImg = styled.img`
-  cursor: pointer;
-  float: right;
-  margin-bottom: 24px;
-`;
-const PrevButton = styled.button`
-  width: 56px;
-  height: 56px;
-  background-color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-`;
-const NextButton = styled.button`
-  width: 56px;
-  height: 56px;
-  background-color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
 `;
